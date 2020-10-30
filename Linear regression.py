@@ -17,7 +17,7 @@ def ShowGraph(x1, y1, x2, y2):
 
 def ErrorAverage(k, b, x, y):
     error = 0
-    for index in range(len(x)): #WARNING: Or y. If x and y are defferent types or lengths may cause error.
+    for index in range(len(x)):
         error = error + ((k*x[index] + b) - y[index]) / 2
     
     return error
@@ -40,7 +40,6 @@ def GuessLinearFunc(Xtrain, Ytrain, maxRange, minRange):
             for res in range(maxRange):
                 results[testK][testB][res] = ErrorAverage(testK, testB, Xtrain, Ytrain)
                 if Module(results[testK][testB][res]) < Module(merr):
-                    #print(merr, "to", results[testK][testB][res])
                     merr = results[testK][testB][res]
                     k = testK
                     b = testB
